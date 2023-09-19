@@ -34,4 +34,23 @@ public class JobTest {
         Job job2 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         assertFalse(job1.equals(job2));
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(job1.toString().startsWith(System.lineSeparator()));
+        assertTrue(job1.toString().endsWith(System.lineSeparator()));
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(job1.toString(), System.lineSeparator() + "ID: " + job1.getId() + System.lineSeparator() + "Name: " + job1.getName() + System.lineSeparator() + "Employer: " + job1.getEmployer() + System.lineSeparator() + "Location: " + job1.getLocation() + System.lineSeparator() + "Position Type: " + job1.getPositionType() + System.lineSeparator() + "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator() + System.lineSeparator());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job1 = new Job("Product Tester", new Employer(""), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
+        assertEquals(job1.toString(), System.lineSeparator() + "ID: " + job1.getId() + System.lineSeparator() + "Name: " + job1.getName() + System.lineSeparator() + "Location: " + job1.getLocation() + System.lineSeparator() + "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator() + System.lineSeparator());
+    }
 }

@@ -28,6 +28,24 @@ public class Job {
     }
 
     @Override
+    public String toString() {
+        String s = System.lineSeparator();
+
+        String returnString = s;
+
+        returnString = returnString + "ID: " + this.getId() + s;
+        if(!this.getName().isEmpty()) returnString = returnString + "Name: " + this.getName() + s;
+        if(!this.getEmployer().getValue().isEmpty()) returnString = returnString + "Employer: " + this.getEmployer() + s;
+        if(!this.getLocation().getValue().isEmpty()) returnString = returnString + "Location: " + this.getLocation() + s;
+        if(!this.getPositionType().getValue().isEmpty()) returnString = returnString + "Position Type: " + this.getPositionType() + s;
+        if(!this.getCoreCompetency().getValue().isEmpty()) returnString = returnString + "Core Competency: " + this.getCoreCompetency() +s;
+
+        returnString += s;
+
+        return returnString;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Job)) return false;
