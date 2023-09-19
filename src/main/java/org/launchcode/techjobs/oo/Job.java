@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
+import static java.lang.System.lineSeparator;
 
 public class Job {
 
@@ -29,16 +30,18 @@ public class Job {
 
     @Override
     public String toString() {
-        String s = System.lineSeparator();
+        String s = lineSeparator();
+
+        System.out.println(s);
 
         String returnString = s;
 
-        returnString = returnString + "ID: " + this.getId() + s;
-        if(!this.getName().isEmpty()) returnString = returnString + "Name: " + this.getName() + s;
-        if(!this.getEmployer().getValue().isEmpty()) returnString = returnString + "Employer: " + this.getEmployer() + s;
-        if(!this.getLocation().getValue().isEmpty()) returnString = returnString + "Location: " + this.getLocation() + s;
-        if(!this.getPositionType().getValue().isEmpty()) returnString = returnString + "Position Type: " + this.getPositionType() + s;
-        if(!this.getCoreCompetency().getValue().isEmpty()) returnString = returnString + "Core Competency: " + this.getCoreCompetency() +s;
+        returnString += "ID: " + this.getId() + s;
+        returnString += "Name: " + ((!this.getName().isEmpty()) ? (this.getName()) : ("Data not available")) + s;
+        returnString += "Employer: " + ((!this.getEmployer().getValue().isEmpty()) ? (this.getEmployer()) : ("Data not available")) + s;
+        returnString += "Location: " + ((!this.getLocation().getValue().isEmpty()) ? (this.getLocation()) : ("Data not available")) + s;
+        returnString += "Position Type: " + ((!this.getPositionType().getValue().isEmpty()) ? (this.getPositionType()) : ("Data not available")) + s;
+        returnString += "Core Competency: " + ((!this.getCoreCompetency().getValue().isEmpty()) ? (this.getCoreCompetency()) : ("Data not available"));
 
         returnString += s;
 
