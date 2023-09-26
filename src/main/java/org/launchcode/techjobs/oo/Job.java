@@ -5,7 +5,7 @@ import static java.lang.System.lineSeparator;
 
 public class Job {
 
-    private int id;
+    private final int id;
     private static int nextId = 1;
 
     private String name;
@@ -32,8 +32,6 @@ public class Job {
     public String toString() {
         String s = lineSeparator();
 
-        System.out.println(s);
-
         String returnString = s;
 
         returnString += "ID: " + this.getId() + s;
@@ -41,9 +39,7 @@ public class Job {
         returnString += "Employer: " + ((!this.getEmployer().getValue().isEmpty()) ? (this.getEmployer()) : ("Data not available")) + s;
         returnString += "Location: " + ((!this.getLocation().getValue().isEmpty()) ? (this.getLocation()) : ("Data not available")) + s;
         returnString += "Position Type: " + ((!this.getPositionType().getValue().isEmpty()) ? (this.getPositionType()) : ("Data not available")) + s;
-        returnString += "Core Competency: " + ((!this.getCoreCompetency().getValue().isEmpty()) ? (this.getCoreCompetency()) : ("Data not available"));
-
-        returnString += s;
+        returnString += "Core Competency: " + ((!this.getCoreCompetency().getValue().isEmpty()) ? (this.getCoreCompetency()) : ("Data not available")) + s;
 
         return returnString;
     }

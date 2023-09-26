@@ -40,7 +40,6 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine() {
         Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         String firstChar = String.valueOf(job1.toString().charAt(0));
-        System.out.println(firstChar);
         String lastChar = String.valueOf(job1.toString().charAt(job1.toString().length()-1));
         assertEquals(firstChar, lineSeparator(), firstChar);
         assertEquals(lastChar, lineSeparator(), lastChar);
